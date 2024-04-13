@@ -1,0 +1,119 @@
+$token-bg: #222;
+
+.chat-view {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 1em;
+
+  .chat-message {
+    margin-top: 1.4em;
+    width: 100%;
+  }
+
+  .request {
+    width: 100%;
+
+    svg {
+      vertical-align: bottom;
+    }
+  }
+
+  .response {
+    display: flex;
+    margin-top: 0.6em;
+
+    .prefix {
+      padding: 0 .5em;
+
+      svg {
+        margin-top: -0.2em;
+      }
+    }
+
+    .content {
+      flex: 1;
+    }
+  }
+
+  .token-viewer {
+    border-radius: 0.4em;
+    padding: 0.4em 0.8em;
+    background: $token-bg;
+    margin-top: 0.8em;
+  }
+
+  &.pending {
+    opacity: .8;
+  }
+}
+
+.chat-input {
+  textarea {
+    width: 100%;
+    background: #333;
+    border: none;
+    border-radius: 0.5em;
+    font-size: 1.4em;
+    color: white;
+    padding: .5em;
+  }
+}
+
+.buttons {
+  display: flex;
+  margin-top: -0.1em;
+  margin-bottom: 0.4em;
+
+  button {
+    background: none;
+    border: none;
+    padding: 0;
+    // font-size: large;
+    transition: background .2s;
+    color: currentColor;
+    margin: .2em 0;
+    padding: 0.3em 0.6em;
+    border-radius: 0.4em;
+
+    &:disabled {
+      opacity: .6;
+    }
+
+    &:not(:disabled) {
+      cursor: pointer;
+    }
+
+    svg {
+      vertical-align: bottom;
+      margin-right: 0.3em;
+    }
+
+    &:hover:not(:disabled) {
+      background: var(--bg-color);
+    }
+  }
+
+  .dynamic {
+    flex: 1;
+  }
+}
+
+.tokens {
+  font-size: inherit;
+
+  span {
+    transition: all .2s;
+  }
+
+  span.selected {
+    background: $token-bg;
+    border-radius: .2em;
+    padding: .3em;
+  }
+}
